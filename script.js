@@ -69,7 +69,15 @@ searchBtn.addEventListener("click", async function () {
     updateUI(movies);
     inputKeyword.value = "";
   } catch (error) {
-    alert(error.message);
+    const showError = `<div class="row">
+                          <div class="col">
+                            <div class="alert alert-danger text-center" role="alert">
+                              <h1>${error.message}</h1>
+                            </div>
+                          </div>
+                        </div>`;
+    const movieContainer = document.querySelector(".movie-container");
+    movieContainer.innerHTML = showError;
   }
 });
 
